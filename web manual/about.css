@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay gelap */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.title {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  z-index: 2;
+  animation: fadeDown 1.2s ease;
+}
+
+/* Animasi teks turun */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 50px;
+  padding: 25px 60px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+}
+
+.tab {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding-bottom: 10px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.tab:hover {
+  color: #0066ff;
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #0066ff;
+  transition: 0.4s ease;
+}
+
+.tab.active {
+  color: #0066ff;
+}
+
+.tab.active::after {
+  width: 100%;
+}
+
+/* CONTENT WRAPPER FIX */
+.content {
+  display: none;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  box-sizing: border-box;
+  animation: fadeUp 0.5s ease;
+}
+
+.content.active {
+  display: block;
+}
+
+/* Animasi halus */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Biar teks rapi */
+.content p {
+  line-height: 1.8;
+  font-size: 17px;
+  color: #333;
+}
